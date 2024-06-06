@@ -1,3 +1,13 @@
+<h1>Brad Big Company</h1>
+<hr />
+<form>
+    Rows: <input type="number" name="rows" />
+    Cols: <input type="number" name="cols" />
+    Start: <input type="number" name="start" />
+    <input type="submit" value="Change" />
+</form>
+<hr />
+
 <table border="1" width="100%">
     <?php
         define('ROWS', 1);
