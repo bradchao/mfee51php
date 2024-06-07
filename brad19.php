@@ -1,5 +1,7 @@
 <?php
+    $counter = 0;
     for($i = 0; $i< 52; $i++){
+        $counter++;
         $temp = rand(0,51);
 
         // 檢查是否重複的機制
@@ -11,7 +13,7 @@
                 break;
             }
         }
-        
+
         if (!$isRepeat){
             $poker[] = $temp;
         }else{
@@ -21,4 +23,5 @@
     foreach($poker as $card){
         echo "{$card}<br />";
     }
+    echo "<hr />{$counter}<br />";
 ?>
