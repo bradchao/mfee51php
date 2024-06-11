@@ -1,5 +1,6 @@
 <?php
 define('LETTERS', 'ABCDEFGHJKLMNPQRSTUVXYWZIO');
+
 function checkTWId($id){
     $ret = false;
     // if (strlen($id) == 10){
