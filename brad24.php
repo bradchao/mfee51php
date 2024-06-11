@@ -9,3 +9,8 @@
     }
 
 ?>
+<hr />
+random : <?php echo createTWIdByRandom(); ?><br />
+area B : <?php echo createTWIdByArea('B'); ?><br />
+gender false : <?php echo createTWIdByGender(false); ?><br />
+both C, true: <?php echo createTWIdByBoth('C', true); ?><br />

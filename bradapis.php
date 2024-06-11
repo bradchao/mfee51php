@@ -35,4 +35,38 @@ function checkTWId($id){
 
     return $ret;
 }
+
+function createTWIdByRandom(){
+    $area = substr(LETTERS, rand(0,25), 1);
+    return createTWIdByArea($area);
+}
+function createTWIdByArea($area = 'A'){
+    $gender = rand(0,1) == 0;
+    return createTWIdByBoth($area, $gender);
+}
+
+function createTWIdByGender($gender = true){
+    $area = substr(LETTERS, rand(0,25), 1);
+    return createTWIdByBoth($area, $gender); 
+}
+
+function createTWIdByBoth($area, $gender){
+    $id = $area;
+    $id .= $gender ? "1" : "2";
+    for ($i=0; $i<7; $i++){
+        $id .= rand(0,9);
+    } 
+    for ($i=0; $i<10;$i++){
+        if (checkTWId($id . $i)){
+            $id .= $i;
+            break;
+        }
+    }
+
+    return $id;
+}
+
+
+
+
 ?>
