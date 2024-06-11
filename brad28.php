@@ -2,7 +2,9 @@
     // 1. 畫布
     $img = imagecreatefromjpeg("imgs/coffee.jpg");
 
-    // 2. 作畫
+    //var_dump($img);
+
+    2. 作畫
     $yellow = imagecolorallocate($img, 255,255,0);
     imagettftext($img, 24, -30, 100, 300, $yellow, 'fonts/myfont.ttf', 
         '資策會論壇專屬, 歡迎盜連');
