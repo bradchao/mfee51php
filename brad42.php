@@ -4,7 +4,9 @@
 
     define('RPP', 10);   // rows per page
     $rpp = RPP;
-    $page = 3;
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $prev = $page == 1 ? 1 : $page - 1;
+    $next = $page + 1;
     $start = ($page - 1) * RPP;
 
     $key = '';
@@ -30,7 +32,8 @@
     <input type="submit" value="Search" />
 </form>
 <hr />
-<a href="">Prev</a> | <a href="" >Next</a>
+<a href="?page=<?php echo $prev; ?>">Prev</a> | 
+<a href="?page=<?php echo $next; ?>" >Next</a>
 <hr />
 <table border="1" width="100%" >
     <tr>
