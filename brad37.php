@@ -9,11 +9,13 @@
     $mysqli->query('DELETE FROM gift');
     $mysqli->query('ALTER TABLE gift AUTO_INCREMENT = 1');
 
+    $sql = 'INSERT INTO gift (name,addr,picurl) VALUES (?,?,?)';
+    $stmt = $mysqli->prepare($sql);
+
     //var_dump($data);
     foreach($data as $gift){
-        $sql = "INSERT INTO gift (name,addr,picurl)" . 
-            " VALUES ('{$gift->Name}','{$gift->SalePlace}','{$gift->Column1}')";
-        $mysqli->query($sql);
+        $stmt->bind_param('sss', $gift->Name, $gift->SalePlace, $gift->Column1);
+        $stmt->execute();
     }
 
 ?>
