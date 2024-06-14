@@ -21,15 +21,21 @@
             //echo "{$passwd} : {$hashPasswd}";
 
             if (password_verify($passwd, $hashPasswd)){
+                $member = new Member();
+                $member->setId($id);
+                $member->setAccount($account);
+                $member->setRealname($realname);
+                $member->setIcon($icon);
+                $_SESSION['member'] = $member;
                 header('Location: main.php');
             }
         }else{
-            echo 'debug1';
+            //echo 'debug1';
         }
 
 
     }else{
-        echo 'debug2';
+        //echo 'debug2';
     }
  
  

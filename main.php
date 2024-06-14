@@ -1,12 +1,13 @@
-I am Main Page
-<hr />
 <?php
     include('bradapis.php');
-    session_cache_expire(1);
     session_start();
+    if (!isset($_SESSION['member'])) header('Location: login.php');
 
     $member = $_SESSION['member'];
-    echo $member->getAccount();
+
 ?>
+I am Main Page
+<hr />
+Welcome, <?php echo $member->getRealname(); ?>
 <hr />
 <a href="logout.php">Logout</a>
