@@ -8,6 +8,7 @@
 ?>
 I am Main Page
 <hr />
-Welcome, <?php echo $member->getRealname(); ?>
+Welcome, <?php echo $member->getRealname(); ?><br />
+<img src="data:image/png;base64,<?php echo base64_encode($member->getIcon()); ?>" />
 <hr />
 <a href="logout.php">Logout</a>
