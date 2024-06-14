@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function test1(){
+        $('#id1').load('brad49.php?max=' + $('#max').val());
+    }
+</script>
+Lottery: <span id="id1"></span><br />
+Max: <input type="number" id="max" /><br />
+<input type="button" onclick="test1()" value="Test1" />
