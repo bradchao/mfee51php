@@ -1,4 +1,5 @@
 <?php
-    $max = isset($_GET['max']) && strlen($_GET['max']) > 0  ? $_GET['max'] : 10;
+    $max = isset($_REQUEST['max']) && strlen($_REQUEST['max']) > 0  
+            ? $_REQUEST['max'] : 10;
     echo rand(1,$max);
 ?>

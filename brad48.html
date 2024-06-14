@@ -4,7 +4,39 @@
     function test1(){
         $('#id1').load('brad49.php?max=' + $('#max').val());
     }
+    function test2(){
+        $.get('brad49.php?max=' + $('#max').val(),function(data, status){
+            if (status == 'success'){
+                $('#id1').html(data);
+            }
+        });
+    }
+    function test3(){
+        $.post('brad49.php',{
+            "max" : $('#max').val()
+        },function(data, status){
+            if (status == 'success'){
+                $('#id1').html(data);
+            }
+        });       
+    }
+    function test4(){
+        $.ajax({
+            url : 'brad49.php',
+            method : 'post',
+            data : {
+                max : $('#max').val()
+            },
+            success : function(data){
+                $('#id1').html(data);
+            },
+    
+        });
+    }
 </script>
 Lottery: <span id="id1"></span><br />
 Max: <input type="number" id="max" /><br />
 <input type="button" onclick="test1()" value="Test1" />
+<input type="button" onclick="test2()" value="Test2" />
+<input type="button" onclick="test3()" value="Test3" />
+<input type="button" onclick="test4()" value="Test4" />
