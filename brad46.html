@@ -1,0 +1,15 @@
+<script>
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (xhttp.readyState == 4 && xhttp.status == 200){
+            document.getElementById('here').innerHTML = xhttp.responseText;
+        }
+    }
+
+    function test1(){
+        xhttp.open('GET', 'brad47.php', true);
+        xhttp.send();
+    }
+</script>
+<input type="button" value="test1" onclick="test1()"/><br />
+<div id="here"></div>
