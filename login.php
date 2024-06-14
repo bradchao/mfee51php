@@ -1,7 +1,7 @@
 <?php
     include('bradapis.php');
-    session_cache_expire(1);
-   session_start();
+    session_start();
+    
 
     if (isset($_GET['account'])){
         $account = $_GET['account']; $passwd = $_GET['passwd']; 
@@ -27,6 +27,7 @@
                 $member->setRealname($realname);
                 $member->setIcon($icon);
                 $_SESSION['member'] = $member;
+                $_SESSION['now'] = time();
                 header('Location: main.php');
             }
         }else{
