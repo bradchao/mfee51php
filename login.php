@@ -1,11 +1,43 @@
 <?php
-    session_start();
+    include('bradapis.php');
+    session_cache_expire(1);
+   session_start();
 
-    $ary = [1,2,3,4];
-    var_dump($ary);
-    $_SESSION['ary'] = $ary;
+    if (isset($_GET['account'])){
+        $account = $_GET['account']; $passwd = $_GET['passwd']; 
+        
+        $mysqli = new mysqli('localhost','root','root', 'iii');
+        $mysqli->set_charset('utf8'); 
 
-    $ary[2] = 333;
+        $sql = 'SELECT id,account,passwd,realname,icon FROM member WHERE account = ?';
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $account);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows > 0){
+            //echo 'debug3';
+            $stmt->bind_result($id,$account,$hashPasswd,$realname,$icon);
+            $stmt->fetch();
+            //echo "{$passwd} : {$hashPasswd}";
+
+            if (password_verify($passwd, $hashPasswd)){
+                header('Location: main.php');
+            }
+        }else{
+            echo 'debug1';
+        }
+
+
+    }else{
+        echo 'debug2';
+    }
+ 
+ 
 ?>
 <hr />
-<a href="main.php">Main</a>
+Login<hr />
+<form>
+    Account: <input name="account"  /><br />
+    Password: <input type="password" name="passwd" /><br />
+    <input type="submit" value="Login"/>
+</form>
